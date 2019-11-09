@@ -22,10 +22,12 @@ class Person extends Component {
         <p>Meu nome é {this.props.personName}</p>
         <p>minha idade é {this.state.idade}</p>
         {console.log("update")}
+        
         <input 
           type="submit" 
           value="parabens" 
           onClick={this.parabens}/>
+
         <input 
             type="submit" 
             value="falar" 

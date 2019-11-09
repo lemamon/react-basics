@@ -4,9 +4,9 @@ import './App.css';
 import Person from './components/Person';
 import Border from './components/Border';
 
-const falar = () =>{
-  console.log("oi");
-  alert("oi");
+const falar = (msg) =>{
+  console.log(msg);
+  alert(msg);
 }
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
           </Border>
          
           <Border>
-            <Person falar={falar} personName="Kevin"  idade={21}/>
+            <Person falar={() => falar("ola")} personName="Kevin"  idade={21}/>
           </Border>
           <a
             className="App-link"
