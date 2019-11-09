@@ -26,6 +26,10 @@ class Person extends Component {
           type="submit" 
           value="parabens" 
           onClick={this.parabens}/>
+        <input 
+            type="submit" 
+            value="falar" 
+            onClick={this.props.falar}/> 
       </>
     )
      
