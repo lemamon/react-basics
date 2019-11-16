@@ -1,7 +1,7 @@
 class Button extends React.Component {
   render() {
     return (
-      <span onClick={() => console.log("add")} className="addBtn">
+      <span onClick={this.props.onClick} className="addBtn">
         Add
       </span>
     );
