@@ -1,21 +1,21 @@
 class Item extends React.Component {
-  state = {
-    isChecked: false
-  };
-
   handleClick = e => {
     e.preventDefault();
-    const { isChecked } = this.state;
 
-    this.setState({ isChecked: !isChecked });
+    const { isChecked } = this.props;
+
+    if (isChecked === "new") {
+      this.props.updateList(this.props.index);
+    } else {
+      this.props.removeItem(this.props.index);
+    }
   };
 
   render() {
-    const { isChecked } = this.state;
-    const { children } = this.props;
+    const { children, isChecked } = this.props;
 
     return (
-      <li onClick={this.handleClick} className={isChecked ? "checked" : ""}>
+      <li onClick={this.handleClick} className={isChecked}>
         {children}
       </li>
     );

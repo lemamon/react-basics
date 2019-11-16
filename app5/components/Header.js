@@ -1,22 +1,23 @@
 class Header extends React.Component {
   state = {
-    value: ""
+    value: "",
+    inputRef: {}
+  };
+
+  getRef = inputRef => {
+    this.setState({ inputRef });
   };
 
   add = () => {
-    console.log("add");
-  };
-
-  getValue = ev => {
-    this.setState({ value: ev.target.value });
+    this.props.add(this.state.inputRef.value);
+    this.state.inputRef.value = "";
   };
 
   render() {
-    console.log(this.state.value);
     return (
       <div id="myDIV" className="header">
         <h2>My To Do List</h2>
-        <Input getValue={this.getValue} />
+        <Input getRef={this.getRef} />
         <Button onClick={this.add} />
       </div>
     );
