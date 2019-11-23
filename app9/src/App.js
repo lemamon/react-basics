@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { users, loading, error } = this.state;
+    const { loading, error, users } = this.state;
     return (
       <div className="App">
         {error ? (
@@ -28,7 +28,7 @@ class App extends React.Component {
         ) : loading ? (
           <h1>loading...</h1>
         ) : (
-          <Stack users={users} />
+          <Stack isUser={true} data={users} />
         )}
       </div>
     );

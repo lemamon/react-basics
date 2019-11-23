@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card";
 
-const Stack = ({ users }) => (
+const Stack = ({ data, isUser }) => (
   <div className="stack">
-    {users.map(user => (
-      <Card key={user.id} user={user} />
+    {data.map(dt => (
+      <Card data={dt} id={dt.id} key={dt.id} isUser={isUser} />
     ))}
   </div>
 );

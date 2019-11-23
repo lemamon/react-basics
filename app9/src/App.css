@@ -13,12 +13,12 @@
 }
 
 .card {
-  font-size: 3vw;
+  font-size: 3em;
   color: silver;
-  margin: 2vw;
+  margin: 2%;
   text-align: center;
-  width: 80vw;
-  height: 30vw;
+  width: 80%;
+  height: 30%;
   border: 2px solid salmon;
   background-image: linear-gradient(
     to right bottom,
@@ -30,14 +30,32 @@
   );
 }
 
+@keyframes openAnim {
+  from {
+    width: 80%;
+    height: 30%;
+  }
+
+  to {
+    width: 80vw;
+    height: 50vw;
+  }
+}
+
+.card.open {
+  animation: openAnim 0.5s ease-in forwards;
+  position: absolute;
+  z-index: 2;
+}
+
 @media (min-width: 1024px) {
   .stack {
     flex-direction: row;
   }
 
   .card {
-    font-size: 1vw;
-    width: 20vw;
-    height: 15vw;
+    font-size: 1em;
+    width: 20%;
+    height: 15%;
   }
 }
