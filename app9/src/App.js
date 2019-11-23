@@ -1,16 +1,18 @@
 import React from "react";
 import "./App.css";
-
+import Stack from "./components/Stack";
+import { getUsers } from "./components/Api";
 class App extends React.Component {
   state = {
-    users: []
+    users: [],
+    loading: true,
+    error: null
   };
 
   getUsers = () => {
-    fetch("https://jsonplaceholder.typicode.com/users/jj")
-      .then(resp => resp.json())
-      .then(users => this.setState({ users }))
-      .catch(error => console.log(error));
+    getUsers()
+      .then(users => this.setState({ users, loading: false }))
+      .catch(error => this.setState({ error, loading: false }));
   };
 
   componentDidMount() {
@@ -18,12 +20,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { users } = this.state;
+    const { users, loading, error } = this.state;
     return (
       <div className="App">
-        {users.map(user => (
-          <h1 key={user.id}>{user.name}</h1>
-        ))}
+        {error ? (
+          <h1>error!!!</h1>
+        ) : loading ? (
+          <h1>loading...</h1>
+        ) : (
+          <Stack users={users} />
+        )}
       </div>
     );
   }
